@@ -1,0 +1,14 @@
+<% if @index_category.validate %>
+    <% @index_category.get_records.each do |c| %>
+        <h1>Name: <%= c.name %> & Allocated Budget: <%= c.budget%> </h1>
+        <%# image_tag c.bg_pic%>
+        <%= button_to "EDIT", edit_category_path(c), method: :get %>
+        <%= button_to "Show", category_path(c),  method: :get %>
+        <%= button_to "DESTROY", category_path(c), method: :delete, data: { confirm: "Are you sure?" } %>
+        <br/>
+
+    <% end %>
+<% else %>
+    <h1>You have no categoies add new category</h1>
+    <%= button_to "ADD NEW CATEGORY", new_category_path , method: :get%>
+<% end %>

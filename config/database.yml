@@ -1,0 +1,22 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  username: root
+  password: MYSQLpassword0409!
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: expense_tracker_development
+
+test:
+  <<: *default
+  database: expense_tracker_test
+
+production:
+  <<: *default
+  database: expense_tracker_production
+  username: expense_tracker
+  password: <%= ENV["EXPENSE_TRACKER_DATABASE_PASSWORD"] %>

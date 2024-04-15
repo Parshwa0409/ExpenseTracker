@@ -1,0 +1,20 @@
+<%= form_with model: @category, url: path, data: { turbo: false }, method: rest  do |form| %>
+    <div class="my-3 py-2 text-capitalize">
+        <%= form.label :name %>
+        <%= form.text_field :name, class:"form-control", placeholder: "Shopping 🛍️" %>
+    </div>
+
+    <div class="my-3 py-2 text-capitalize">
+        <%= form.label :budget %>
+        <%= form.text_field :budget,  class:"form-control",  placeholder: "5000" %>
+    </div>
+
+    <div class="my-3 py-2 text-capitalize">
+        <%= form.label :bg_pic %>
+        <%= form.file_field :bg_pic,  class:"form-control"%>
+    </div>
+
+    <div class="my-3">
+        <%= form.submit btn_text, class:"btn btn-primary btn-lg btn-block w-100"%>
+    </div>
+<% end %>
