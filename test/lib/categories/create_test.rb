@@ -31,9 +31,9 @@ describe Categories::Create do
 
     describe 'PASS - CREATE RECORD' do 
         let(:errors_mock) do
-        mock = Minitest::Mock.new
-        mock.expect(:any?, false, [])
-        mock
+            mock = Minitest::Mock.new
+            mock.expect(:any?, false, [])
+            mock
         end
 
         let(:category_instance_mock) do
@@ -60,9 +60,9 @@ describe Categories::Create do
 
     describe 'FAIL - CREATE RECORD' do 
         let(:errors_mock) do
-        mock = Minitest::Mock.new
-        mock.expect(:any?, true, [])
-        mock
+            mock = Minitest::Mock.new
+            mock.expect(:any?, true, [])
+            mock
         end
 
         let(:category_instance_mock) do
