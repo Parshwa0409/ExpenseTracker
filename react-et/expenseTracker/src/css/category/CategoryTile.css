@@ -1,0 +1,67 @@
+/* Category Tile Styles */
+.category-tile {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: #f3f4fa;
+	border-radius: 12px;
+	box-shadow: 0 2px 12px rgba(99, 102, 241, 0.07);
+	padding: 1.2rem 1.5rem;
+	transition: box-shadow 0.2s;
+}
+.category-tile:hover {
+	box-shadow: 0 4px 24px rgba(99, 102, 241, 0.13);
+}
+.category-tile-title {
+	font-size: 1.3rem;
+	font-weight: 700;
+	color: #6366f1;
+	margin: 0;
+	flex: 2;
+}
+.category-tile-budget {
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: #3a3a5a;
+	margin: 0 1.5rem 0 0;
+	flex: 1;
+	text-align: right;
+}
+.category-tile-actions {
+	display: flex;
+	gap: 0.7rem;
+	flex: 1;
+	justify-content: flex-end;
+}
+.category-tile .btn.edit {
+	background: #60a5fa;
+	color: #fff;
+}
+.category-tile .btn.edit:hover {
+	background: #6366f1;
+	color: #fff;
+}
+.category-tile .btn.delete {
+	background: #ef4444;
+	color: #fff;
+}
+.category-tile .btn.delete:hover {
+	background: #b91c1c;
+	color: #fff;
+}
+
+@media (max-width: 600px) {
+	.category-tile {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 1rem 0.7rem;
+	}
+	.category-tile-budget {
+		margin: 0.5rem 0 0 0;
+		text-align: left;
+	}
+	.category-tile-actions {
+		justify-content: flex-start;
+		margin-top: 0.7rem;
+	}
+}

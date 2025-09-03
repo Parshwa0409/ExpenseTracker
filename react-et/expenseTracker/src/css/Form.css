@@ -1,0 +1,78 @@
+/* Elegant, reusable form styles for Expense Tracker app */
+
+/* Prevent textarea resize */
+.no-resize {
+  resize: none;
+}
+
+.expense-tracker-form {
+  background: transparent;
+  border-radius: 12px;
+  border: 1.5px solid #e0e7ff;
+  box-shadow: 0 1px 8px rgba(99, 102, 241, 0.06);
+  padding: 1.5rem 1.5rem;
+  max-width: 60%;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-label {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #6366f1;
+  margin-bottom: 0.3rem;
+}
+
+.form-input {
+  font-size: 1rem;
+  padding: 0.7em 1em;
+  border: 1.5px solid #c7d2fe;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #22223b;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-input:focus {
+  border-color: #6366f1;
+  background: #e0e7ff;
+}
+
+.form-error {
+  color: #ef4444;
+  font-size: 0.95rem;
+  margin-top: -0.7rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-submit {
+  background: linear-gradient(90deg, #6366f1 0%, #60a5fa 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8em 1.7em;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.08);
+  transition: background 0.2s, color 0.2s;
+}
+.form-submit:disabled {
+  background: #a5b4fc;
+  color: #fff;
+  cursor: not-allowed;
+}
+.form-submit:hover:not(:disabled) {
+  background: #fbbf24;
+  color: #22223b;
+}
+
+@media (max-width: 600px) {
+  .expense-tracker-form {
+    padding: 1rem 0.5rem;
+    max-width: 98vw;
+  }
+}

@@ -1,0 +1,79 @@
+/* Expense Tile Styles */
+
+/* Compact Expense Tile Styles */
+.expense-tile {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: #f3f4fa;
+	border-radius: 12px;
+	box-shadow: 0 2px 12px rgba(99, 102, 241, 0.07);
+	padding: 1rem 1.2rem;
+	margin-bottom: 1rem;
+	transition: box-shadow 0.2s;
+}
+.expense-tile:hover {
+	box-shadow: 0 4px 24px rgba(99, 102, 241, 0.13);
+}
+.expens-tile-date {
+	color: #6366f1;
+	font-size: 1rem;
+	font-weight: 500;
+	margin: 0;
+	flex: 1;
+}
+.expens-tile-title {
+	color: #1e293b;
+	font-size: 1.1rem;
+	font-weight: 600;
+	margin: 0 1.2rem;
+	flex: 2;
+}
+.expens-tile-amount {
+	color: #10b981;
+	font-size: 1.05rem;
+	font-weight: 600;
+	margin: 0 1.2rem 0 0;
+	flex: 1;
+	text-align: right;
+}
+.expens-tile-category {
+	color: #64748b;
+	font-size: 1rem;
+	font-weight: 500;
+	margin: 0 1.2rem 0 0;
+	flex: 1;
+	text-align: right;
+}
+.expense-tile-actions {
+	display: flex;
+	gap: 0.7rem;
+	flex: 1;
+	justify-content: flex-end;
+}
+.btn {
+	padding: 0.35rem 1rem;
+	border-radius: 8px;
+	border: none;
+	font-size: 0.93rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: background 0.2s, color 0.2s;
+}
+
+.expense-tile .btn.edit {
+	background: #60a5fa;
+	color: #fff;
+}
+.expense-tile .btn.edit:hover {
+	background: #6366f1;
+	color: #fff;
+}
+.expense-tile .btn.delete {
+	background: #ef4444;
+	color: #fff;
+}
+.expense-tile .btn.delete:hover {
+	background: #b91c1c;
+	color: #fff;
+}
