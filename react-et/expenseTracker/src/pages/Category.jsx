@@ -35,12 +35,12 @@ function Category() {
         navigate('/add-category');
     };
 
-    const handleDelete = async (e, id) => {
+    const handleDelete = async (id) => {
         setIsLoading(true);
         setIsSubmitting(true);
         try {
             await axios.delete(`http://localhost:8080/api/category/${id}`);
-            e.target.closest('.category-tile')?.remove();
+            setCategories(prevCategories => prevCategories.filter(category => category.id !== id));
             toast.success("Category deleted successfully!");
         } catch (err) {
             toast.error("Failed to delete category.");
@@ -68,7 +68,7 @@ function Category() {
                                     key={category.id} 
                                     category={category}
                                     onEdit={() => navigateToEdit(category.id)}
-                                    onDelete={(e) => handleDelete(e, category.id)}
+                                    onDelete={() => handleDelete(category.id)}
                                 />
                             );
                         })
