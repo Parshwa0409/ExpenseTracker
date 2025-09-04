@@ -1,15 +1,46 @@
 -- CATEGORY TABLE
 
-INSERT INTO category (name, emoji, budget) VALUES ('Food', '🍔', 12000);
-INSERT INTO category (name, emoji, budget) VALUES ('Transport', '🚗', 4000);
-INSERT INTO category (name, emoji, budget) VALUES ('Entertainment', '🎬', 3000);
-INSERT INTO category (name, emoji, budget) VALUES ('Utilities', '💡', 5000);
-INSERT INTO category (name, emoji, budget) VALUES ('Health', '💊', 2500);
-INSERT INTO category (name, emoji, budget) VALUES ('Shopping', '🛍️', 6000);
-INSERT INTO category (name, emoji, budget) VALUES ('Education', '📚', 7000);
-INSERT INTO category (name, emoji, budget) VALUES ('Travel', '✈️', 8000);
-INSERT INTO category (name, emoji, budget) VALUES ('Miscellaneous', '🛒', 2500);
-INSERT INTO category (name, emoji, budget) VALUES ('Waste', '🗑️', 1000);
+INSERT INTO category (name, emoji) VALUES ('Food', '🍔');
+INSERT INTO category (name, emoji) VALUES ('Transport', '🚗');
+INSERT INTO category (name, emoji) VALUES ('Entertainment', '🎬');
+INSERT INTO category (name, emoji) VALUES ('Utilities', '💡');
+INSERT INTO category (name, emoji) VALUES ('Health', '💊');
+INSERT INTO category (name, emoji) VALUES ('Shopping', '🛍️');
+INSERT INTO category (name, emoji) VALUES ('Education', '📚');
+INSERT INTO category (name, emoji) VALUES ('Travel', '✈️');
+INSERT INTO category (name, emoji) VALUES ('Miscellaneous', '🛒');
+INSERT INTO category (name, emoji) VALUES ('Waste', '🗑️');
+
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (12000, '2023-01-01', 1);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (4000, '2023-01-01', 2);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (3000, '2023-01-01', 3);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (5000, '2023-01-01', 4);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (2500, '2023-01-01', 5);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (6000, '2023-01-01', 6);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (7000, '2023-01-01', 7);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (8000, '2023-01-01', 8);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (2500, '2023-01-01', 9);
+
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (13000, '2024-01-01', 1);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (5000, '2024-01-01', 2);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (5000, '2024-01-01', 3);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (10000, '2024-01-01', 4);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (3000, '2024-01-01', 5);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (3000, '2024-01-01', 6);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (5000, '2024-01-01', 7);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (10000, '2024-01-01', 8);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (5000, '2024-01-01', 9);
+
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (15000, '2025-01-01', 1);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (5000, '2025-01-01', 2);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (5000, '2025-01-01', 3);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (15000, '2025-01-01', 4);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (3000, '2025-01-01', 5);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (3000, '2025-01-01', 6);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (5000, '2025-01-01', 7);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (15000, '2025-01-01', 8);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (5000, '2025-01-01', 9);
+INSERT INTO budget (budget, date_of_updation, category_id) VALUES (500, '2025-01-01', 10);
 
 
 INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-01', 1);

@@ -16,10 +16,13 @@ import java.time.LocalDate;
 public class Expense {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @NotBlank(message = "Title is required")
     private String title;
+
     @Min(value = 0, message = "Expense cannot be negative")
     private int amount;
+
     @NotNull(message = "Date of Expense cannot be null")
     private LocalDate date;
     @ManyToOne(fetch = FetchType.EAGER)

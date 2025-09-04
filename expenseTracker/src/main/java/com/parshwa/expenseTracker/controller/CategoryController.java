@@ -1,6 +1,6 @@
 package com.parshwa.expenseTracker.controller;
 
-import com.parshwa.expenseTracker.model.Category;
+import com.parshwa.expenseTracker.dto.CategoryWithBudgetDto;
 import com.parshwa.expenseTracker.service.CategoryService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,25 +20,25 @@ public class CategoryController {
     }
 
     @GetMapping("api/categories")
-    public List<Category> getAllCategories(){
+    public List<CategoryWithBudgetDto> getAllCategories(){
         return categoryService.getAllCategories();
     }
 
     @GetMapping("api/category/{id}")
-    public Category getCategory(@PathVariable int id){
+    public CategoryWithBudgetDto getCategory(@PathVariable int id){
         isValidPathVariable(id);
         return categoryService.getCategory(id);
     }
 
     @PostMapping("api/category")
-    public Category createCategory(@Valid @RequestBody Category category){
-        return categoryService.createCategory(category);
+    public CategoryWithBudgetDto createCategory(@Valid @RequestBody CategoryWithBudgetDto categoryWithBudgetDto){
+        return categoryService.createCategory(categoryWithBudgetDto);
     }
 
     @PutMapping("api/category/{id}")
-    public Category updateCategory(@PathVariable int id,@Valid @RequestBody Category category){
+    public CategoryWithBudgetDto updateCategory(@PathVariable int id, @Valid @RequestBody CategoryWithBudgetDto categoryWithBudgetDto){
         isValidPathVariable(id);
-        return categoryService.updateCategory(id, category);
+        return categoryService.updateCategory(id, categoryWithBudgetDto);
     }
 
     @DeleteMapping("api/category/{id}")
