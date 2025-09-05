@@ -26,13 +26,6 @@ public class CategoryWithBudgetDto {
     @Min(value = 0, message = "Budget must be greater than or equal to 0")
     private int budget;
 
-    public CategoryWithBudgetDto(int id, String emoji, String name, int budget) {
-        this.id = id;
-        this.emoji = emoji;
-        this.name = name;
-        this.budget = budget;
-    }
-
     public CategoryWithBudgetDto(Category c, Budget b) {
         this.id = c.getId();
         this.emoji = c.getEmoji();
