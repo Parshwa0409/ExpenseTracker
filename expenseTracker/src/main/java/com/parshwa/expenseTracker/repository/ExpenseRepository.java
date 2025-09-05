@@ -20,9 +20,9 @@ public interface ExpenseRepository extends JpaRepository<Expense, Integer> {
 
     //org.springframework.core.convert.ConverterNotFoundException: No converter found capable of converting from type [java.lang.String] to type [com.parshwa.expenseTracker.model.CategoryUtilizationDto] => Because of no constructor in dto class to convert the Object[] to CategoryUtilizationDto
     // A JPQL with constructor  (SELECT new ...) directly returns a list of DTOs by calling the matching constructor. This eliminates manual mapping, reduces errors, and makes your code cleaner and more maintainable.
-//    @Query("SELECT new com.parshwa.expenseTracker.dto.CategorySummaryDto(c.emoji, c.name, SUM(e.amount), c.budget) FROM Expense e JOIN e.category c WHERE YEAR(e.date) = :year AND MONTH(e.date) = :month GROUP BY c.id, c.name")
-//    List<CategorySummaryDto> getCategoryUtilization(@Param("year") int year, @Param("month") int month);
-//
-//    @Query("SELECT new com.parshwa.expenseTracker.dto.MonthlyTrendDto(MONTH(e.date), SUM(e.amount), YEAR(e.date)) FROM Expense e GROUP BY YEAR(e.date), MONTH(e.date) ORDER BY YEAR(e.date) ASC, MONTH(e.date) ASC")
-//    List<MonthlyTrendDto> getMonthlyTrends();
+    @Query("SELECT new com.parshwa.expenseTracker.dto.CategorySummaryDto(c.id, c.emoji, c.name, SUM(e.amount)) FROM Expense e JOIN e.category c WHERE YEAR(e.date) = :year AND MONTH(e.date) = :month GROUP BY c.id, c.name")
+    List<CategorySummaryDto> getCategoryUtilization(@Param("year") int year, @Param("month") int month);
+
+    @Query("SELECT new com.parshwa.expenseTracker.dto.MonthlyTrendDto(MONTH(e.date), SUM(e.amount), YEAR(e.date)) FROM Expense e GROUP BY YEAR(e.date), MONTH(e.date) ORDER BY YEAR(e.date) ASC, MONTH(e.date) ASC")
+    List<MonthlyTrendDto> getMonthlyTrends();
 }
