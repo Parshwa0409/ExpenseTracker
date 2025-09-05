@@ -4,6 +4,9 @@ import com.parshwa.expenseTracker.dto.CategoryWithBudgetDto;
 import com.parshwa.expenseTracker.model.Budget;
 import com.parshwa.expenseTracker.model.Category;
 import com.parshwa.expenseTracker.repository.CategoryRepository;
+import jakarta.transaction.Transactional;
+import org.apache.coyote.BadRequestException;
+import org.hibernate.query.IllegalQueryOperationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
@@ -70,8 +73,11 @@ public class CategoryService {
     }
 
     // A category cannot be deleted until all associated expenses are removed; if deletable, also delete its budgets.
-    public void deleteCategory(int id) {
-        budgetService.deleteAllByCategoryId(id);
-        categoryRepository.deleteById(id);
+    @Transactional
+    public void deleteCategory(int id) throws BadRequestException {
+        if (categoryRepository.countExpensesByCategoryId(id) > 0) {
+            throw new BadRequestException("Category cannot be deleted because it has expenses.");
+        }
+        categoryRepository.deleteById(id); // Cascade will handle budgets
     }
 }

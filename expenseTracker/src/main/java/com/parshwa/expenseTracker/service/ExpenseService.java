@@ -33,9 +33,9 @@ public class ExpenseService {
     }
 
     public ExpenseWithCategoryDto createExpense(ExpenseWithCategoryDto expenseWithCategoryDto) {
-        int categoryId = expenseWithCategoryDto.getCategoryId();
-
+        int categoryId = expenseWithCategoryDto.getCategory().getId();
         Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException("Category not found with id: " + categoryId));
+
         Expense expense = new Expense();
         expense.setAmount(expenseWithCategoryDto.getAmount());
         expense.setCategory(category);
@@ -48,7 +48,7 @@ public class ExpenseService {
     }
 
     public ExpenseWithCategoryDto updateExpense(int id, ExpenseWithCategoryDto expenseWithCategoryDto) {
-        int categoryId = expenseWithCategoryDto.getCategoryId();
+        int categoryId = expenseWithCategoryDto.getCategory().getId();
         Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException("Category not found with id: " + categoryId));
 
         Expense expense = expenseRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Expense not found with id: " + id));
@@ -70,5 +70,9 @@ public class ExpenseService {
         return expenseRepository.findByTitleContaining(keyword, pageable).stream().map(
                 ExpenseWithCategoryDto::new
         ).toList();
+    }
+
+    public long getCount() {
+        return expenseRepository.count();
     }
 }
