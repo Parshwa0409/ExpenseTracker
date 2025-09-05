@@ -1518,7 +1518,7 @@ INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 12
 INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-16', 1);
 INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-17', 1);
 INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-09-18', 2);
+INSERT INTO expense (title, amount, date, category_id) VALUES ('Weekend Trip', 5000, '2025-09-18', 8);
 INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-19', 1);
 INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-20', 1);
 INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2025-09-20', 6);
