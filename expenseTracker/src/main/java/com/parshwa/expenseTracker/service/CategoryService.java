@@ -78,6 +78,7 @@ public class CategoryService {
         if (categoryRepository.countExpensesByCategoryId(id) > 0) {
             throw new BadRequestException("Category cannot be deleted because it has expenses.");
         }
+        budgetService.deleteAllByCategoryId(id);
         categoryRepository.deleteById(id); // Cascade will handle budgets
     }
 }
