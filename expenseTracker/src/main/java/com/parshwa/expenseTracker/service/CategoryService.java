@@ -3,7 +3,6 @@ package com.parshwa.expenseTracker.service;
 import com.parshwa.expenseTracker.dto.CategoryWithBudgetDto;
 import com.parshwa.expenseTracker.model.Budget;
 import com.parshwa.expenseTracker.model.Category;
-import com.parshwa.expenseTracker.repository.BudgetRepository;
 import com.parshwa.expenseTracker.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
@@ -24,7 +23,10 @@ public class CategoryService {
         return categoryRepository
                 .findAll()
                 .stream()
-                .map(category -> new CategoryWithBudgetDto(category, category.getLatestBudget()))
+                .map(category -> new CategoryWithBudgetDto(
+                        category,
+                        budgetService.getLatestCategoryBudget(category, currentDate)
+                ))
                 .collect(Collectors.toList());
     }
 
@@ -32,7 +34,7 @@ public class CategoryService {
         Category category = categoryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Category not found with id: " + id));
 
-        Budget latestBudget = category.getLatestBudget();
+        Budget latestBudget = budgetService.getLatestCategoryBudget(category, currentDate);
 
         return new CategoryWithBudgetDto(category, latestBudget);
     }
@@ -43,7 +45,7 @@ public class CategoryService {
         category.setEmoji(dto.getEmoji());
         category = categoryRepository.save(category);
 
-        Budget budget = budgetService.createInitialBudget(
+        Budget budget = budgetService.createBudget(
                 category,
                 dto.getBudget(),
                 currentDate
@@ -57,21 +59,19 @@ public class CategoryService {
         c.setEmoji(categoryWithBudgetDto.getEmoji());
         c.setName(categoryWithBudgetDto.getName());
 
-        Budget b = c.getLatestBudget();
-
+        Budget b = budgetService.getLatestCategoryBudget(c, currentDate);
         LocalDate latestBudgetDate = b.getDateOfUpdation();
-        if(latestBudgetDate.getYear() == currentDate.getYear() && latestBudgetDate.getMonthValue() == currentDate.getMonthValue()){
-            b = budgetService.update(b, categoryWithBudgetDto.getBudget(), currentDate);
-        }else{
-            b = budgetService.createInitialBudget(c, categoryWithBudgetDto.getBudget(), currentDate);
-        }
+
+        b = (latestBudgetDate.getYear() == currentDate.getYear() && latestBudgetDate.getMonthValue() == currentDate.getMonthValue()) ?
+        budgetService.updateBudget(b, categoryWithBudgetDto.getBudget(), currentDate) :
+        budgetService.createBudget(c, categoryWithBudgetDto.getBudget(), currentDate);
+
         return new CategoryWithBudgetDto(c, b);
     }
 
-    // To ensure data integrity, a category cannot be deleted until all associated expenses are removed.
-    // Since one category can have many expenses, deletion of the category is only allowed when there are no expenses linked to it.
-    // But if a category can be deleted then we also delete the Budgets included with it.
+    // A category cannot be deleted until all associated expenses are removed; if deletable, also delete its budgets.
     public void deleteCategory(int id) {
+        budgetService.deleteAllByCategoryId(id);
         categoryRepository.deleteById(id);
     }
 }
