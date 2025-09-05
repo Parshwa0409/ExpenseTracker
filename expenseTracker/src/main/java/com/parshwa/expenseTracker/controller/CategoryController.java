@@ -24,24 +24,24 @@ public class CategoryController {
         return categoryService.getAllCategories();
     }
 
-    @GetMapping("api/category/{id}")
+    @GetMapping("api/categories/{id}")
     public CategoryWithBudgetDto getCategory(@PathVariable int id){
         isValidPathVariable(id);
         return categoryService.getCategory(id);
     }
 
-    @PostMapping("api/category")
+    @PostMapping("api/categories")
     public CategoryWithBudgetDto createCategory(@Valid @RequestBody CategoryWithBudgetDto categoryWithBudgetDto){
         return categoryService.createCategory(categoryWithBudgetDto);
     }
 
-    @PutMapping("api/category/{id}")
+    @PutMapping("api/categories/{id}")
     public CategoryWithBudgetDto updateCategory(@PathVariable int id, @Valid @RequestBody CategoryWithBudgetDto categoryWithBudgetDto){
         isValidPathVariable(id);
         return categoryService.updateCategory(id, categoryWithBudgetDto);
     }
 
-    @DeleteMapping("api/category/{id}")
+    @DeleteMapping("api/categories/{id}")
     public void deleteCategory(@PathVariable int id){
         isValidPathVariable(id);
         categoryService.deleteCategory(id);
