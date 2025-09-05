@@ -37,7 +37,7 @@ function Expense() {
     setIsLoading(true);
     setIsSubmitting(true);
     try {
-      await axios.delete(`http://localhost:8080/api/expense/${id}`);
+      await axios.delete(`http://localhost:8080/api/expenses/${id}`);
       handlePaginationOnDelete(id);
       fetchExpenses(currentPage);
       toast.success("Expense deleted successfully!");
@@ -55,7 +55,7 @@ function Expense() {
       const response = await axios.get(
         `http://localhost:8080/api/expenses?page=${cp - 1}`
       );
-      setExpenses(response.data.content);
+      setExpenses(response.data);
     } catch (error) {
       toast.error("Error fetching expenses.");
     } finally {

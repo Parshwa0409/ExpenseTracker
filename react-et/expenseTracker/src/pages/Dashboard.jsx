@@ -66,7 +66,7 @@ function Dashboard() {
   };
   const formatPieChartData = (reqData) => {
     return {
-      labels: reqData.map((data) => data.emoji),
+      labels: reqData.map((data) => data.name),
       datasets: [
         {
           data: reqData.map((data) => data.totalExpense),

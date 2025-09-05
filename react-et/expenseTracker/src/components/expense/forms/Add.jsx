@@ -30,7 +30,7 @@ const Add = () => {
         setCategories(res.data);
       } catch (err) {
         toast.error("Error, Fetching Categories");
-      }finally{
+      } finally {
         setIsLoading(false);
       }
     };
@@ -42,7 +42,7 @@ const Add = () => {
     setIsSubmitting(true);
     setIsLoading(true);
     try {
-      await axios.post("http://localhost:8080/api/expense", data);
+      await axios.post("http://localhost:8080/api/expenses", data);
       navigate("/my-expenses");
       reset();
       toast.success("Expense added successfully!");

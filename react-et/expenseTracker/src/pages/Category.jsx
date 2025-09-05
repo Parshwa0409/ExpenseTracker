@@ -39,7 +39,7 @@ function Category() {
         setIsLoading(true);
         setIsSubmitting(true);
         try {
-            await axios.delete(`http://localhost:8080/api/category/${id}`);
+            await axios.delete(`http://localhost:8080/api/categories/${id}`);
             setCategories(prevCategories => prevCategories.filter(category => category.id !== id));
             toast.success("Category deleted successfully!");
         } catch (err) {

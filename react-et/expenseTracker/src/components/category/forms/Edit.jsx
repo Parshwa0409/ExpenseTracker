@@ -27,7 +27,7 @@ function Edit() {
         setIsSubmitting(true);
         setIsLoading(true);
         try {
-            await axios.put(`http://localhost:8080/api/category/${currId}`, data);
+            await axios.put(`http://localhost:8080/api/categories/${currId}`, data);
             navigate('/my-expense-categories');
             toast.success("Category updated successfully!");
         } catch (err) {
@@ -41,7 +41,7 @@ function Edit() {
     useEffect(() => {
         const fetchCategory = async (id) => {
             try {
-                const res = await axios.get(`http://localhost:8080/api/category/${id}`);
+                const res = await axios.get(`http://localhost:8080/api/categories/${id}`);
                 reset(res.data)
             } catch (err) {
                 console.log(err);

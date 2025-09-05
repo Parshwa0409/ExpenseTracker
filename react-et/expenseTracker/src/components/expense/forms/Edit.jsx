@@ -9,12 +9,8 @@ import "../../../css/Form.css";
 const Edit = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const {
-    isLoading,
-    setIsLoading,
-    isSubmitting,
-    setIsSubmitting,
-  } = useGlobalStatus();
+  const { isLoading, setIsLoading, isSubmitting, setIsSubmitting } =
+    useGlobalStatus();
 
   const [categories, setCategories] = useState([]);
   const [currId] = useState(location.state.id);
@@ -24,6 +20,7 @@ const Edit = () => {
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
   } = useForm();
 
   const fetchCategories = async () => {
@@ -39,7 +36,7 @@ const Edit = () => {
 
   const fetchExpense = async (id) => {
     try {
-      const res = await axios.get(`http://localhost:8080/api/expense/${id}`);
+      const res = await axios.get(`http://localhost:8080/api/expenses/${id}`);
       reset(res.data);
     } catch (err) {
       toast.error("Failed to fetch expense details");
@@ -59,7 +56,7 @@ const Edit = () => {
     setIsSubmitting(true);
     setIsLoading(true);
     try {
-      await axios.put(`http://localhost:8080/api/expense/${currId}`, data);
+      await axios.put(`http://localhost:8080/api/expenses/${currId}`, data);
       navigate("/my-expenses");
       toast.success("Expense updated successfully!");
       reset();

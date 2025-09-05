@@ -22,7 +22,7 @@ function AddCategory() {
     setIsSubmitting(true);
     setIsLoading(true);
     try {
-      await axios.post("http://localhost:8080/api/category", data);
+      await axios.post("http://localhost:8080/api/categories", data);
       navigate("/my-expense-categories");
       reset();
       toast.success("Category added successfully!");
