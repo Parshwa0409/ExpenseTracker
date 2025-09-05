@@ -1,1677 +1,332 @@
--- CATEGORY TABLE
-
-INSERT INTO category (name, emoji) VALUES ('Food', '🍔');
-INSERT INTO category (name, emoji) VALUES ('Transport', '🚗');
-INSERT INTO category (name, emoji) VALUES ('Entertainment', '🎬');
-INSERT INTO category (name, emoji) VALUES ('Utilities', '💡');
-INSERT INTO category (name, emoji) VALUES ('Health', '💊');
-INSERT INTO category (name, emoji) VALUES ('Shopping', '🛍️');
-INSERT INTO category (name, emoji) VALUES ('Education', '📚');
-INSERT INTO category (name, emoji) VALUES ('Travel', '✈️');
-INSERT INTO category (name, emoji) VALUES ('Miscellaneous', '🛒');
-INSERT INTO category (name, emoji) VALUES ('Waste', '🗑️');
-
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (12000, '2023-01-01', 1);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (4000, '2023-01-01', 2);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (3000, '2023-01-01', 3);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (5000, '2023-01-01', 4);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (2500, '2023-01-01', 5);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (6000, '2023-01-01', 6);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (7000, '2023-01-01', 7);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (8000, '2023-01-01', 8);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (2500, '2023-01-01', 9);
-
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (13000, '2024-01-01', 1);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (5000, '2024-01-01', 2);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (5000, '2024-01-01', 3);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (10000, '2024-01-01', 4);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (3000, '2024-01-01', 5);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (3000, '2024-01-01', 6);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (5000, '2024-01-01', 7);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (10000, '2024-01-01', 8);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (5000, '2024-01-01', 9);
-
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (15000, '2025-01-01', 1);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (5000, '2025-01-01', 2);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (5000, '2025-01-01', 3);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (15000, '2025-01-01', 4);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (3000, '2025-01-01', 5);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (3000, '2025-01-01', 6);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (5000, '2025-01-01', 7);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (15000, '2025-01-01', 8);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (5000, '2025-01-01', 9);
-INSERT INTO budget (budget, date_of_updation, category_id) VALUES (500, '2025-01-01', 10);
+-- CATEGORIES (fixed IDs so references work)
+INSERT INTO category (emoji, name) VALUES ('🍽️', 'Food');
+INSERT INTO category (emoji, name) VALUES ('🏍️', 'Bike');
+INSERT INTO category (emoji, name) VALUES ('🧾', 'Bills');
+INSERT INTO category (emoji, name) VALUES ('🔌', 'Utilities & Recharge');
+INSERT INTO category (emoji, name) VALUES ('🚌', 'Transport');
+INSERT INTO category (emoji, name) VALUES ('✈️', 'Travel');
+INSERT INTO category (emoji, name) VALUES ('🧩', 'Miscellaneous');
+INSERT INTO category (emoji, name) VALUES ('💰', 'Investment');
 
 
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-01-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-01-02', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-01-05', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2023-01-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-01-09', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-01-12', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-01-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-01-16', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-01-19', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2023-01-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-01-23', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Online Course', 4000, '2023-01-25', 7);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-01-26', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-01-30', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2023-01-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-01-31', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-02-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-02-02', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2023-02-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-02-06', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-02-09', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Doctor Visit', 800, '2023-02-10', 5);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-02-13', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-02-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-02-16', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-02-20', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2023-02-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-02-23', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-02-27', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-02-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Weekend Trip', 5000, '2023-02-28', 8);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-03-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-03-02', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2023-03-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-03-06', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-03-09', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-03-13', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-03-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-03-16', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-03-20', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2023-03-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-03-23', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Online Course', 4000, '2023-03-25', 7);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-03-27', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-03-30', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2023-03-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-03-31', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-04-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-04-03', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2023-04-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-04-06', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-04-10', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Doctor Visit', 800, '2023-04-10', 5);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-04-13', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-04-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-04-17', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-04-20', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2023-04-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-04-24', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-04-27', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-04-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2023-04-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-05-01', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-05-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-05-04', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2023-05-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-05-08', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-05-11', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-05-15', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-05-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-05-18', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2023-05-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-05-22', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-05-25', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Weekend Trip', 5000, '2023-05-28', 8);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-05-29', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2023-05-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-05-31', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-06-01', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-06-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-06-05', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2023-06-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-06-08', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Doctor Visit', 800, '2023-06-10', 5);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-06-12', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-06-15', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-06-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-06-19', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2023-06-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-06-22', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Online Course', 4000, '2023-06-25', 7);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-06-26', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-06-29', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-06-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2023-06-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-07-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-07-03', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2023-07-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-07-06', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-07-10', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-07-13', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-07-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-07-17', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-07-20', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2023-07-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-07-24', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-07-27', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2023-07-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-07-31', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-07-31', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-08-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-08-03', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2023-08-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-08-07', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-08-10', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Doctor Visit', 800, '2023-08-10', 5);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-08-14', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-08-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-08-17', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2023-08-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-08-21', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-08-24', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-08-28', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Weekend Trip', 5000, '2023-08-28', 8);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2023-08-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-08-31', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-08-31', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-09-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-09-04', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2023-09-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-09-07', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-09-11', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-09-14', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-09-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-09-18', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2023-09-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-09-21', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-09-25', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Online Course', 4000, '2023-09-25', 7);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-09-28', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-09-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2023-09-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-10-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-10-02', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-10-05', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2023-10-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-10-09', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Doctor Visit', 800, '2023-10-10', 5);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-10-12', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-10-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-10-16', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-10-19', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2023-10-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-10-23', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-10-26', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-10-30', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2023-10-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-10-31', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-11-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-11-02', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2023-11-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-11-06', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-11-09', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-11-13', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-11-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-11-16', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-11-20', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2023-11-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-11-23', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-11-27', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Weekend Trip', 5000, '2023-11-28', 8);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-11-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-11-30', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2023-11-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-12-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-12-04', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2023-12-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-12-07', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Doctor Visit', 800, '2023-12-10', 5);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-12-11', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-12-14', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2023-12-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-12-18', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2023-12-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-12-21', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-12-25', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Online Course', 4000, '2023-12-25', 7);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2023-12-28', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2023-12-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2023-12-31', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-01-01', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-01-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-01-04', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2024-01-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-01-08', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-01-11', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-01-15', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-01-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-01-18', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2024-01-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-01-22', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-01-25', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Online Course', 4000, '2024-01-25', 7);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-01-29', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2024-01-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-01-31', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-02-01', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-02-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-02-05', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2024-02-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-02-08', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Doctor Visit', 800, '2024-02-10', 5);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-02-12', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-02-15', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-02-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-02-19', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2024-02-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-02-22', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-02-26', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Weekend Trip', 5000, '2024-02-28', 8);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-02-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-02-29', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-03-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-03-04', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2024-03-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-03-07', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-03-11', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-03-14', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-03-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-03-18', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2024-03-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-03-21', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-03-25', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Online Course', 4000, '2024-03-25', 7);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-03-28', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2024-03-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-03-31', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-04-01', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-04-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-04-04', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2024-04-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-04-08', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Doctor Visit', 800, '2024-04-10', 5);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-04-11', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-04-15', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-04-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-04-18', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2024-04-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-04-22', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-04-25', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-04-29', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-04-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2024-04-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-05-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-05-02', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2024-05-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-05-06', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-05-09', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-05-13', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-05-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-05-16', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-05-20', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2024-05-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-05-23', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-05-27', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Weekend Trip', 5000, '2024-05-28', 8);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-05-30', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2024-05-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-05-31', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-06-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-06-03', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2024-06-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-06-06', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-06-10', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Doctor Visit', 800, '2024-06-10', 5);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-06-13', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-06-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-06-17', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-06-20', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2024-06-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-06-24', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Online Course', 4000, '2024-06-25', 7);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-06-27', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-06-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2024-06-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-07-01', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-07-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-07-04', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2024-07-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-07-08', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-07-11', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-07-15', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-07-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-07-18', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2024-07-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-07-22', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-07-25', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-07-29', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2024-07-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-07-31', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-08-01', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-08-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-08-05', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2024-08-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-08-08', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Doctor Visit', 800, '2024-08-10', 5);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-08-12', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-08-15', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-08-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-08-19', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2024-08-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-08-22', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-08-26', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Weekend Trip', 5000, '2024-08-28', 8);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-08-29', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2024-08-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-08-31', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-09-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-09-02', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-09-05', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2024-09-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-09-09', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-09-12', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-09-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-09-16', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-09-19', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2024-09-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-09-23', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Online Course', 4000, '2024-09-25', 7);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-09-26', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-09-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-09-30', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2024-09-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-10-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-10-03', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2024-10-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-10-07', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-10-10', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Doctor Visit', 800, '2024-10-10', 5);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-10-14', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-10-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-10-17', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2024-10-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-10-21', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-10-24', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-10-28', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2024-10-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-10-31', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-10-31', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-11-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-11-04', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2024-11-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-11-07', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-11-11', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-11-14', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-11-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-11-18', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2024-11-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-11-21', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-11-25', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-11-28', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Weekend Trip', 5000, '2024-11-28', 8);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-11-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2024-11-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-12-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-12-02', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-12-05', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2024-12-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-12-09', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Doctor Visit', 800, '2024-12-10', 5);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-12-12', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2024-12-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-12-16', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-12-19', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2024-12-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-12-23', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Online Course', 4000, '2024-12-25', 7);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-12-26', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2024-12-30', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2024-12-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2024-12-31', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-01-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-01-02', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2025-01-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-01-06', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-01-09', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-01-13', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-01-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-01-16', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-01-20', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2025-01-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-01-23', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Online Course', 4000, '2025-01-25', 7);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-01-27', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-01-30', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2025-01-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-01-31', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-02-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-02-03', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2025-02-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-02-06', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-02-10', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Doctor Visit', 800, '2025-02-10', 5);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-02-13', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-02-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-02-17', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-02-20', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2025-02-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-02-24', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-02-27', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-02-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Weekend Trip', 5000, '2025-02-28', 8);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-03-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-03-03', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2025-03-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-03-06', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-03-10', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-03-13', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-03-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-03-17', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-03-20', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2025-03-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-03-24', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Online Course', 4000, '2025-03-25', 7);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-03-27', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2025-03-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-03-31', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-03-31', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-04-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-04-03', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2025-04-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-04-07', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-04-10', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Doctor Visit', 800, '2025-04-10', 5);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-04-14', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-04-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-04-17', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2025-04-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-04-21', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-04-24', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-04-28', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-04-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2025-04-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-05-01', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-05-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-05-05', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2025-05-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-05-08', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-05-12', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-05-15', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-05-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-05-19', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2025-05-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-05-22', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-05-26', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Weekend Trip', 5000, '2025-05-28', 8);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-05-29', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2025-05-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-05-31', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-06-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-06-02', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-06-05', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2025-06-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-06-09', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Doctor Visit', 800, '2025-06-10', 5);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-06-12', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-06-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-06-16', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-06-19', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2025-06-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-06-23', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Online Course', 4000, '2025-06-25', 7);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-06-26', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-06-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-06-30', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2025-06-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-07-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-07-03', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2025-07-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-07-07', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-07-10', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-07-14', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-07-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-07-17', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2025-07-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-07-21', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-07-24', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-07-28', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2025-07-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-07-31', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-07-31', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-08-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-08-04', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2025-08-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-08-07', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Doctor Visit', 800, '2025-08-10', 5);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-08-11', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-08-14', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-08-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-08-18', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2025-08-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-08-21', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-08-25', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-08-28', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Weekend Trip', 5000, '2025-08-28', 8);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2025-08-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-08-31', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-09-01', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-09-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-09-04', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2025-09-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-09-08', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-09-11', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-09-15', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-09-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Weekend Trip', 5000, '2025-09-18', 8);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2025-09-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-09-22', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-09-25', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Online Course', 4000, '2025-09-25', 7);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-09-29', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-09-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2025-09-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-10-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-10-02', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2025-10-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-10-06', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-10-09', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Doctor Visit', 800, '2025-10-10', 5);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-10-13', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-10-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-10-16', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-10-20', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2025-10-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-10-23', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-10-27', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-10-30', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2025-10-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-10-31', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-11-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-11-03', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2025-11-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-11-06', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-11-10', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-11-13', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-11-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-11-17', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-11-20', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2025-11-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-11-24', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-11-27', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Weekend Trip', 5000, '2025-11-28', 8);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-11-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2025-11-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-01', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-12-01', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-12-01', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-02', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-03', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-04', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-12-04', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-05', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Electricity Bill', 2000, '2025-12-05', 4);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-06', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-07', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-08', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-12-08', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-09', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-10', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Doctor Visit', 800, '2025-12-10', 5);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-11', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-12-11', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-12', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-13', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-14', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-15', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-12-15', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Movie Night', 1200, '2025-12-15', 3);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-16', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-17', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-18', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-12-18', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-19', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-20', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('New Shoes', 3000, '2025-12-20', 6);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-21', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-22', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-12-22', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-23', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-24', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-25', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-12-25', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Online Course', 4000, '2025-12-25', 7);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-26', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-27', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-28', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-29', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Bus Ticket', 300, '2025-12-29', 2);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-30', 1);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Haircut', 500, '2025-12-30', 9);
-INSERT INTO expense (title, amount, date, category_id) VALUES ('Groceries', 400, '2025-12-31', 1);
+-- === Oct–Dec 2024 ===
+INSERT INTO budget (category_id, budget, date_of_updation) VALUES
+(1, 11500, '2024-10-01'), (2, 4500, '2024-10-01'), (3, 10500, '2024-10-01'),
+(4, 900,   '2024-10-01'), (5, 300,  '2024-10-01'), (6, 4500, '2024-10-01'),
+(7, 700,   '2024-10-01'), (8, 6000, '2024-10-01');
 
+INSERT INTO budget (category_id, budget, date_of_updation) VALUES
+(1, 11500, '2024-11-01'), (2, 4500, '2024-11-01'), (3, 10500, '2024-11-01'),
+(4, 900,   '2024-11-01'), (5, 300,  '2024-11-01'), (6, 4500, '2024-11-01'),
+(7, 700,   '2024-11-01'), (8, 6000, '2024-11-01');
+
+INSERT INTO budget (category_id, budget, date_of_updation) VALUES
+(1, 11500, '2024-12-01'), (2, 4500, '2024-12-01'), (3, 10500, '2024-12-01'),
+(4, 900,   '2024-12-01'), (5, 300,  '2024-12-01'), (6, 4500, '2024-12-01'),
+(7, 700,   '2024-12-01'), (8, 6000, '2024-12-01');
+
+-- === Jan–Mar 2025 ===
+INSERT INTO budget (category_id, budget, date_of_updation) VALUES
+(1, 12000, '2025-01-01'), (2, 4700, '2025-01-01'), (3, 10500, '2025-01-01'),
+(4, 900,   '2025-01-01'), (5, 300,  '2025-01-01'), (6, 4500, '2025-01-01'),
+(7, 800,   '2025-01-01'), (8, 6000, '2025-01-01');
+
+INSERT INTO budget (category_id, budget, date_of_updation) VALUES
+(1, 12000, '2025-02-01'), (2, 4700, '2025-02-01'), (3, 10500, '2025-02-01'),
+(4, 900,   '2025-02-01'), (5, 300,  '2025-02-01'), (6, 4500, '2025-02-01'),
+(7, 800,   '2025-02-01'), (8, 6000, '2025-02-01');
+
+INSERT INTO budget (category_id, budget, date_of_updation) VALUES
+(1, 12000, '2025-03-01'), (2, 4700, '2025-03-01'), (3, 10500, '2025-03-01'),
+(4, 900,   '2025-03-01'), (5, 300,  '2025-03-01'), (6, 4500, '2025-03-01'),
+(7, 800,   '2025-03-01'), (8, 6000, '2025-03-01');
+
+-- === Apr–Jun 2025 ===
+INSERT INTO budget (category_id, budget, date_of_updation) VALUES
+(1, 12500, '2025-04-01'), (2, 4900, '2025-04-01'), (3, 10500, '2025-04-01'),
+(4, 950,   '2025-04-01'), (5, 350,  '2025-04-01'), (6, 4500, '2025-04-01'),
+(7, 900,   '2025-04-01'), (8, 6000, '2025-04-01');
+
+INSERT INTO budget (category_id, budget, date_of_updation) VALUES
+(1, 12500, '2025-05-01'), (2, 4900, '2025-05-01'), (3, 10500, '2025-05-01'),
+(4, 950,   '2025-05-01'), (5, 350,  '2025-05-01'), (6, 4500, '2025-05-01'),
+(7, 900,   '2025-05-01'), (8, 6000, '2025-05-01');
+
+INSERT INTO budget (category_id, budget, date_of_updation) VALUES
+(1, 12500, '2025-06-01'), (2, 4900, '2025-06-01'), (3, 10500, '2025-06-01'),
+(4, 950,   '2025-06-01'), (5, 350,  '2025-06-01'), (6, 4500, '2025-06-01'),
+(7, 900,   '2025-06-01'), (8, 6000, '2025-06-01');
+
+-- === Jul–Sep 2025 ===
+INSERT INTO budget (category_id, budget, date_of_updation) VALUES
+(1, 12000, '2025-07-01'), (2, 4600, '2025-07-01'), (3, 10500, '2025-07-01'),
+(4, 900,   '2025-07-01'), (5, 300,  '2025-07-01'), (6, 4500, '2025-07-01'),
+(7, 800,   '2025-07-01'), (8, 6000, '2025-07-01');
+
+INSERT INTO budget (category_id, budget, date_of_updation) VALUES
+(1, 12000, '2025-08-01'), (2, 4600, '2025-08-01'), (3, 10500, '2025-08-01'),
+(4, 900,   '2025-08-01'), (5, 300,  '2025-08-01'), (6, 4500, '2025-08-01'),
+(7, 800,   '2025-08-01'), (8, 6000, '2025-08-01');
+
+INSERT INTO budget (category_id, budget, date_of_updation) VALUES
+(1, 12000, '2025-09-01'), (2, 4600, '2025-09-01'), (3, 10500, '2025-09-01'),
+(4, 900,   '2025-09-01'), (5, 300,  '2025-09-01'), (6, 4500, '2025-09-01'),
+(7, 800,   '2025-09-01'), (8, 6000, '2025-09-01');
+
+-- === Oct 2025 ===
+INSERT INTO budget (category_id, budget, date_of_updation) VALUES
+(1, 12500, '2025-10-01'), (2, 4800, '2025-10-01'), (3, 10500, '2025-10-01'),
+(4, 900,   '2025-10-01'), (5, 300,  '2025-10-01'), (6, 4500, '2025-10-01'),
+(7, 1000,  '2025-10-01'), (8, 6000, '2025-10-01');
+
+
+-- ===== OCT 2024 =====
+INSERT INTO expense (amount, title, date, category_id) VALUES
+(10000, 'Rent', '2024-10-01', 3),
+(150,   'Electricity', '2024-10-10', 3),
+(300,   'Mobile Recharge', '2024-10-05', 4),
+(450,   'WiFi', '2024-10-07', 4),
+(6000,  'Monthly Investment', '2024-10-03', 8),
+(2200,  'Groceries', '2024-10-02', 1),
+(2100,  'Groceries', '2024-10-09', 1),
+(2300,  'Groceries', '2024-10-16', 1),
+(2000,  'Groceries', '2024-10-23', 1),
+(600,   'Eating Out', '2024-10-25', 1),
+(850,   'Bike Fuel', '2024-10-06', 2),
+(820,   'Bike Fuel', '2024-10-13', 2),
+(880,   'Bike Fuel', '2024-10-20', 2),
+(800,   'Bike Fuel', '2024-10-27', 2),
+(180,   'Bike Wash', '2024-10-12', 2),
+(300,   'Local Transport', '2024-10-14', 5),
+(4000,  'Travel (Quarterly Trip)', '2024-10-20', 6);
+
+-- ===== NOV 2024 =====
+INSERT INTO expense (amount, title, date, category_id) VALUES
+(10000, 'Rent', '2024-11-01', 3),
+(150,   'Electricity', '2024-11-10', 3),
+(300,   'Mobile Recharge', '2024-11-05', 4),
+(450,   'WiFi', '2024-11-07', 4),
+(6000,  'Monthly Investment', '2024-11-03', 8),
+(2200,  'Groceries', '2024-11-02', 1),
+(2100,  'Groceries', '2024-11-09', 1),
+(2300,  'Groceries', '2024-11-16', 1),
+(2000,  'Groceries', '2024-11-23', 1),
+(600,   'Eating Out', '2024-11-25', 1),
+(850,   'Bike Fuel', '2024-11-06', 2),
+(820,   'Bike Fuel', '2024-11-13', 2),
+(880,   'Bike Fuel', '2024-11-20', 2),
+(800,   'Bike Fuel', '2024-11-27', 2),
+(180,   'Bike Wash', '2024-11-12', 2),
+(400,   'Misc (Quarterly)', '2024-11-17', 7);
+
+-- ===== DEC 2024 =====
+INSERT INTO expense (amount, title, date, category_id) VALUES
+(10000, 'Rent', '2024-12-01', 3),
+(150,   'Electricity', '2024-12-10', 3),
+(300,   'Mobile Recharge', '2024-12-05', 4),
+(450,   'WiFi', '2024-12-07', 4),
+(6000,  'Monthly Investment', '2024-12-03', 8),
+(2200,  'Groceries', '2024-12-02', 1),
+(2100,  'Groceries', '2024-12-09', 1),
+(2300,  'Groceries', '2024-12-16', 1),
+(2000,  'Groceries', '2024-12-23', 1),
+(600,   'Eating Out', '2024-12-25', 1),
+(850,   'Bike Fuel', '2024-12-06', 2),
+(820,   'Bike Fuel', '2024-12-13', 2),
+(880,   'Bike Fuel', '2024-12-20', 2),
+(800,   'Bike Fuel', '2024-12-27', 2),
+(180,   'Bike Wash', '2024-12-12', 2),
+(300,   'Local Transport', '2024-12-14', 5);
+
+-- ===== JAN 2025 =====
+INSERT INTO expense (amount, title, date, category_id) VALUES
+(10000, 'Rent', '2025-01-01', 3),
+(150,   'Electricity', '2025-01-10', 3),
+(300,   'Mobile Recharge', '2025-01-05', 4),
+(450,   'WiFi', '2025-01-07', 4),
+(6000,  'Monthly Investment', '2025-01-03', 8),
+(2200,  'Groceries', '2025-01-02', 1),
+(2100,  'Groceries', '2025-01-09', 1),
+(2300,  'Groceries', '2025-01-16', 1),
+(2000,  'Groceries', '2025-01-23', 1),
+(600,   'Eating Out', '2025-01-25', 1),
+(850,   'Bike Fuel', '2025-01-06', 2),
+(820,   'Bike Fuel', '2025-01-13', 2),
+(880,   'Bike Fuel', '2025-01-20', 2),
+(800,   'Bike Fuel', '2025-01-27', 2),
+(180,   'Bike Wash', '2025-01-12', 2),
+(4000,  'Travel (Quarterly Trip)', '2025-01-20', 6);
+
+-- ===== FEB 2025 =====
+INSERT INTO expense (amount, title, date, category_id) VALUES
+(10000, 'Rent', '2025-02-01', 3),
+(150,   'Electricity', '2025-02-10', 3),
+(300,   'Mobile Recharge', '2025-02-05', 4),
+(450,   'WiFi', '2025-02-07', 4),
+(6000,  'Monthly Investment', '2025-02-03', 8),
+(2200,  'Groceries', '2025-02-02', 1),
+(2100,  'Groceries', '2025-02-09', 1),
+(2300,  'Groceries', '2025-02-16', 1),
+(2000,  'Groceries', '2025-02-23', 1),
+(600,   'Eating Out', '2025-02-25', 1),
+(850,   'Bike Fuel', '2025-02-06', 2),
+(820,   'Bike Fuel', '2025-02-13', 2),
+(880,   'Bike Fuel', '2025-02-20', 2),
+(800,   'Bike Fuel', '2025-02-27', 2),
+(180,   'Bike Wash', '2025-02-12', 2),
+(300,   'Local Transport', '2025-02-14', 5),
+(400,   'Misc (Quarterly)', '2025-02-17', 7);
+
+-- ===== MAR 2025 =====
+INSERT INTO expense (amount, title, date, category_id) VALUES
+(10000, 'Rent', '2025-03-01', 3),
+(150,   'Electricity', '2025-03-10', 3),
+(300,   'Mobile Recharge', '2025-03-05', 4),
+(450,   'WiFi', '2025-03-07', 4),
+(6000,  'Monthly Investment', '2025-03-03', 8),
+(2200,  'Groceries', '2025-03-02', 1),
+(2100,  'Groceries', '2025-03-09', 1),
+(2300,  'Groceries', '2025-03-16', 1),
+(2000,  'Groceries', '2025-03-23', 1),
+(600,   'Eating Out', '2025-03-25', 1),
+(850,   'Bike Fuel', '2025-03-06', 2),
+(820,   'Bike Fuel', '2025-03-13', 2),
+(880,   'Bike Fuel', '2025-03-20', 2),
+(800,   'Bike Fuel', '2025-03-27', 2),
+(180,   'Bike Wash', '2025-03-12', 2),
+(800,   'Misc (One-off)', '2025-03-24', 7);
+
+-- ===== APR 2025 =====
+INSERT INTO expense (amount, title, date, category_id) VALUES
+(10000, 'Rent', '2025-04-01', 3),
+(150,   'Electricity', '2025-04-10', 3),
+(300,   'Mobile Recharge', '2025-04-05', 4),
+(450,   'WiFi', '2025-04-07', 4),
+(6000,  'Monthly Investment', '2025-04-03', 8),
+(2200,  'Groceries', '2025-04-02', 1),
+(2100,  'Groceries', '2025-04-09', 1),
+(2300,  'Groceries', '2025-04-16', 1),
+(2000,  'Groceries', '2025-04-23', 1),
+(600,   'Eating Out', '2025-04-25', 1),
+(850,   'Bike Fuel', '2025-04-06', 2),
+(820,   'Bike Fuel', '2025-04-13', 2),
+(880,   'Bike Fuel', '2025-04-20', 2),
+(800,   'Bike Fuel', '2025-04-27', 2),
+(180,   'Bike Wash', '2025-04-12', 2),
+(4000,  'Travel (Quarterly Trip)', '2025-04-20', 6);
+
+-- ===== MAY 2025 =====
+INSERT INTO expense (amount, title, date, category_id) VALUES
+(10000, 'Rent', '2025-05-01', 3),
+(150,   'Electricity', '2025-05-10', 3),
+(300,   'Mobile Recharge', '2025-05-05', 4),
+(450,   'WiFi', '2025-05-07', 4),
+(6000,  'Monthly Investment', '2025-05-03', 8),
+(2200,  'Groceries', '2025-05-02', 1),
+(2100,  'Groceries', '2025-05-09', 1),
+(2300,  'Groceries', '2025-05-16', 1),
+(2000,  'Groceries', '2025-05-23', 1),
+(600,   'Eating Out', '2025-05-25', 1),
+(850,   'Bike Fuel', '2025-05-06', 2),
+(820,   'Bike Fuel', '2025-05-13', 2),
+(880,   'Bike Fuel', '2025-05-20', 2),
+(800,   'Bike Fuel', '2025-05-27', 2),
+(180,   'Bike Wash', '2025-05-12', 2),
+(300,   'Local Transport', '2025-05-14', 5),
+(400,   'Misc (Quarterly)', '2025-05-17', 7);
+
+-- ===== JUN 2025 =====
+INSERT INTO expense (amount, title, date, category_id) VALUES
+(10000, 'Rent', '2025-06-01', 3),
+(150,   'Electricity', '2025-06-10', 3),
+(300,   'Mobile Recharge', '2025-06-05', 4),
+(450,   'WiFi', '2025-06-07', 4),
+(6000,  'Monthly Investment', '2025-06-03', 8),
+(2200,  'Groceries', '2025-06-02', 1),
+(2100,  'Groceries', '2025-06-09', 1),
+(2300,  'Groceries', '2025-06-16', 1),
+(2000,  'Groceries', '2025-06-23', 1),
+(600,   'Eating Out', '2025-06-25', 1),
+(850,   'Bike Fuel', '2025-06-06', 2),
+(820,   'Bike Fuel', '2025-06-13', 2),
+(880,   'Bike Fuel', '2025-06-20', 2),
+(800,   'Bike Fuel', '2025-06-27', 2),
+(180,   'Bike Wash', '2025-06-12', 2);
+
+-- ===== JUL 2025 =====
+INSERT INTO expense (amount, title, date, category_id) VALUES
+(10000, 'Rent', '2025-07-01', 3),
+(150,   'Electricity', '2025-07-10', 3),
+(300,   'Mobile Recharge', '2025-07-05', 4),
+(450,   'WiFi', '2025-07-07', 4),
+(6000,  'Monthly Investment', '2025-07-03', 8),
+(2200,  'Groceries', '2025-07-02', 1),
+(2100,  'Groceries', '2025-07-09', 1),
+(2300,  'Groceries', '2025-07-16', 1),
+(2000,  'Groceries', '2025-07-23', 1),
+(600,   'Eating Out', '2025-07-25', 1),
+(850,   'Bike Fuel', '2025-07-06', 2),
+(820,   'Bike Fuel', '2025-07-13', 2),
+(880,   'Bike Fuel', '2025-07-20', 2),
+(800,   'Bike Fuel', '2025-07-27', 2),
+(180,   'Bike Wash', '2025-07-12', 2),
+(4000,  'Travel (Quarterly Trip)', '2025-07-20', 6);
+
+-- ===== AUG 2025 =====
+INSERT INTO expense (amount, title, date, category_id) VALUES
+(10000, 'Rent', '2025-08-01', 3),
+(150,   'Electricity', '2025-08-10', 3),
+(300,   'Mobile Recharge', '2025-08-05', 4),
+(450,   'WiFi', '2025-08-07', 4),
+(6000,  'Monthly Investment', '2025-08-03', 8),
+(2200,  'Groceries', '2025-08-02', 1),
+(2100,  'Groceries', '2025-08-09', 1),
+(2300,  'Groceries', '2025-08-16', 1),
+(2000,  'Groceries', '2025-08-23', 1),
+(600,   'Eating Out', '2025-08-25', 1),
+(850,   'Bike Fuel', '2025-08-06', 2),
+(820,   'Bike Fuel', '2025-08-13', 2),
+(880,   'Bike Fuel', '2025-08-20', 2),
+(800,   'Bike Fuel', '2025-08-27', 2),
+(180,   'Bike Wash', '2025-08-12', 2),
+(300,   'Local Transport', '2025-08-14', 5),
+(400,   'Misc (Quarterly)', '2025-08-17', 7);
+
+-- ===== SEP 2025 =====
+INSERT INTO expense (amount, title, date, category_id) VALUES
+(10000, 'Rent', '2025-09-01', 3),
+(150,   'Electricity', '2025-09-10', 3),
+(300,   'Mobile Recharge', '2025-09-05', 4),
+(450,   'WiFi', '2025-09-07', 4),
+(6000,  'Monthly Investment', '2025-09-03', 8),
+(2200,  'Groceries', '2025-09-02', 1),
+(2100,  'Groceries', '2025-09-09', 1),
+(2300,  'Groceries', '2025-09-16', 1),
+(2000,  'Groceries', '2025-09-23', 1),
+(600,   'Eating Out', '2025-09-25', 1),
+(850,   'Bike Fuel', '2025-09-06', 2),
+(820,   'Bike Fuel', '2025-09-13', 2),
+(880,   'Bike Fuel', '2025-09-20', 2),
+(800,   'Bike Fuel', '2025-09-27', 2),
+(180,   'Bike Wash', '2025-09-12', 2),
+(800,   'Misc (One-off)', '2025-09-24', 7);
+
+-- ===== OCT 2025 =====
+INSERT INTO expense (amount, title, date, category_id) VALUES
+(10000, 'Rent', '2025-10-01', 3),
+(150,   'Electricity', '2025-10-10', 3),
+(300,   'Mobile Recharge', '2025-10-05', 4),
+(450,   'WiFi', '2025-10-07', 4),
+(6000,  'Monthly Investment', '2025-10-03', 8),
+(2200,  'Groceries', '2025-10-02', 1),
+(2100,  'Groceries', '2025-10-09', 1),
+(2300,  'Groceries', '2025-10-16', 1),
+(2000,  'Groceries', '2025-10-23', 1),
+(600,   'Eating Out', '2025-10-25', 1),
+(850,   'Bike Fuel', '2025-10-06', 2),
+(820,   'Bike Fuel', '2025-10-13', 2),
+(880,   'Bike Fuel', '2025-10-20', 2),
+(800,   'Bike Fuel', '2025-10-27', 2),
+(180,   'Bike Wash', '2025-10-12', 2),
+(300,   'Local Transport', '2025-10-14', 5),
+(4000,  'Travel (Quarterly Trip)', '2025-10-20', 6);

@@ -6,6 +6,7 @@ import BarChart from "../components/dashboard/BarChart";
 import PieChart from "../components/dashboard/PieChart";
 import LineChart from "../components/dashboard/LineChart";
 import { useEffect, useState } from "react";
+import { data } from "react-router-dom";
 
 function Dashboard() {
   const { isLoading, setIsLoading } = useGlobalStatus();
@@ -15,7 +16,7 @@ function Dashboard() {
 
   function getRandomColor() {
     const hue = Math.floor(Math.random() * 720);
-    return `hsl(${hue}, 80%, 80%)`;
+    return `hsl(${hue}, 75%, 75%)`;
   }
 
   const handleYearChange = (e) => {
@@ -38,6 +39,7 @@ function Dashboard() {
       },
     ],
   });
+  
   const [pieCharData, setPieCharData] = useState({
     labels: [],
     datasets: [
@@ -49,6 +51,7 @@ function Dashboard() {
       },
     ],
   });
+
   const [lineChartData, setLineChartData] = useState({
     labels: [],
     datasets: [
@@ -61,6 +64,7 @@ function Dashboard() {
       },
     ],
   });
+
   const formatChartData = (reqData) => {
     try {
       // Validate required fields
@@ -116,6 +120,7 @@ function Dashboard() {
       };
     }
   };
+
   const formatPieChartData = (reqData) => {
     return {
       labels: reqData.map((data) => data.name),
@@ -130,44 +135,41 @@ function Dashboard() {
       names: reqData.map((data) => data.name),
     };
   };
+
   const formatLineChartData = (reqData) => {
+    const MONTHS = [
+      "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    ];
+    
     let yearlyData = {};
-    reqData.forEach((item) => {
-      yearlyData[item.year] = {
-        label: [...(yearlyData[item.year]?.label || []), item.month],
-        data: [...(yearlyData[item.year]?.data || []), item.totalExpense],
+    
+    // Get unique years
+    const years = [...new Set(reqData.map(d => d.year))];
+    
+    // Initialize data structure for each year
+    years.forEach(year => {
+      yearlyData[year] = {
+        data: Array(12).fill(0) // Initialize with zeros for all months
       };
     });
-
-    const result = {
-      labels: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ],
-      datasets: [],
-    };
-
-    Object.keys(yearlyData).forEach((key) => {
-      result.datasets.push({
-        label: key,
-        data: yearlyData[key].data,
-        borderColor: getRandomColor(),
-        fill: false,
-      });
+    
+    // Fill in the actual expense data
+    reqData.forEach(item => {
+      yearlyData[item.year].data[item.month - 1] = item.totalExpense;
     });
-
-    return result;
+    
+    return {
+      labels: MONTHS,
+      datasets: years.map(year => ({
+        label: year.toString(),
+        data: yearlyData[year].data,
+        borderColor: getRandomColor(),
+        fill: false
+      }))
+    };
   };
+
   const fetchCategoryUtilization = async () => {
     setIsLoading(true);
     try {
@@ -188,6 +190,7 @@ function Dashboard() {
       setIsLoading(false);
     }
   };
+
   const fetchYearlyMonthlyTrend = async () => {
     setIsLoading(true);
     try {
