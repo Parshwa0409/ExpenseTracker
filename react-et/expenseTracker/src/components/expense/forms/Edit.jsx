@@ -38,6 +38,10 @@ const Edit = () => {
     try {
       const res = await axios.get(`http://localhost:8080/api/expenses/${id}`);
       reset(res.data);
+      // Add a small delay before setting the category
+      setTimeout(() => {
+        setValue("category.id", res.data.category.id);
+      }, 100);
     } catch (err) {
       toast.error("Failed to fetch expense details");
     } finally {
@@ -47,8 +51,8 @@ const Edit = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetchExpense(currId);
     fetchCategories();
+    fetchExpense(currId);
     setIsLoading(false);
   }, []);
 
@@ -89,6 +93,7 @@ const Edit = () => {
               maxLength: 32,
             })}
             className="form-input"
+            id="title"
           />
           {errors.title?.type === "required" && (
             <span className="form-error">Name is required</span>
@@ -113,6 +118,7 @@ const Edit = () => {
               min: 1,
             })}
             className="form-input"
+            id="amount"
           />
           {errors.amount?.type === "required" && (
             <span className="form-error">Amount is required</span>
@@ -128,6 +134,7 @@ const Edit = () => {
             type="date"
             {...register("date", { valueAsDate: true, required: true })}
             className="form-input"
+            id="date"
           />
           {errors.date?.type === "required" && (
             <span className="form-error">Date is required</span>
@@ -139,6 +146,7 @@ const Edit = () => {
           <select
             {...register("category.id", { required: true })}
             className="form-input"
+            id="category"
           >
             <option value="">Select category</option>
             {categories.map((cat) => (

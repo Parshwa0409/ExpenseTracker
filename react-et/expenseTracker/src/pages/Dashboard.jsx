@@ -9,10 +9,23 @@ import { useEffect, useState } from "react";
 
 function Dashboard() {
   const { isLoading, setIsLoading } = useGlobalStatus();
+  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+  const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth() + 1);
+  const [isEmpty, setIsEmpty] = useState(false);
+
   function getRandomColor() {
     const hue = Math.floor(Math.random() * 720);
     return `hsl(${hue}, 80%, 80%)`;
   }
+
+  const handleYearChange = (e) => {
+    setSelectedYear(parseInt(e.target.value));
+  };
+
+  const handleMonthChange = (e) => {
+    setSelectedMonth(parseInt(e.target.value));
+  };
+
   const [barCharData, setBarCharData] = useState({
     labels: [],
     datasets: [
@@ -49,20 +62,59 @@ function Dashboard() {
     ],
   });
   const formatChartData = (reqData) => {
-    return {
-      labels: reqData.map((data) => data.emoji), // Only emoji for x-axis
-      datasets: [
-        {
-          label: "Budget Utilization",
-          data: reqData.map((data) => (data.totalExpense * 100) / data.budget),
-          backgroundColor: "rgba(99, 102, 241, 0.7)", // theme color
-          borderColor: "#6366f1",
-          borderWidth: 1,
-        },
-      ],
-      // Custom property for tooltips
-      names: reqData.map((data) => data.name),
-    };
+    try {
+      // Validate required fields
+      reqData.forEach((data, index) => {
+        if (
+          !data.emoji ||
+          !data.budget ||
+          typeof data.totalExpense !== "number"
+        ) {
+          console.warn(`Invalid data at index ${index}:`, data);
+        }
+      });
+
+      // Filter out invalid data
+      const validData = reqData.filter(
+        (data) =>
+          data.emoji &&
+          data.budget &&
+          typeof data.totalExpense === "number" &&
+          data.budget > 0 // Prevent division by zero
+      );
+
+      return {
+        labels: validData.map((data) => data.emoji),
+        datasets: [
+          {
+            label: "Budget Utilization",
+            data: validData.map((data) => {
+              const percentage = (data.totalExpense * 100) / data.budget;
+              return Math.min(percentage, 100); // Cap at 100% for better visualization
+            }),
+            backgroundColor: "rgba(99, 102, 241, 0.7)",
+            borderColor: "#6366f1",
+            borderWidth: 1,
+          },
+        ],
+        names: validData.map((data) => data.name),
+      };
+    } catch (error) {
+      console.error("Error formatting chart data:", error);
+      return {
+        labels: [],
+        datasets: [
+          {
+            label: "Budget Utilization",
+            data: [],
+            backgroundColor: "rgba(99, 102, 241, 0.7)",
+            borderColor: "#6366f1",
+            borderWidth: 1,
+          },
+        ],
+        names: [],
+      };
+    }
   };
   const formatPieChartData = (reqData) => {
     return {
@@ -118,15 +170,18 @@ function Dashboard() {
   };
   const fetchCategoryUtilization = async () => {
     setIsLoading(true);
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = now.getMonth() + 1;
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/dashboard/category-utilization?year=${year}&month=${month}`
+        `http://localhost:8080/api/dashboard/category-utilization?year=${selectedYear}&month=${selectedMonth}`
       );
-      setBarCharData(formatChartData(response.data));
-      setPieCharData(formatPieChartData(response.data));
+
+      if (response.data.length === 0) {
+        setIsEmpty(true);
+      } else {
+        setIsEmpty(false);
+        setBarCharData(formatChartData(response.data));
+        setPieCharData(formatPieChartData(response.data));
+      }
     } catch (error) {
       toast.error("Error fetching category utilization.");
     } finally {
@@ -136,7 +191,9 @@ function Dashboard() {
   const fetchYearlyMonthlyTrend = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(`http://localhost:8080/api/dashboard/monthly-expense-trend`);
+      const response = await axios.get(
+        `http://localhost:8080/api/dashboard/monthly-expense-trend`
+      );
       setLineChartData(formatLineChartData(response.data));
     } catch (error) {
       toast.error("Error fetching yearly monthly trends.");
@@ -148,7 +205,7 @@ function Dashboard() {
   useEffect(() => {
     fetchCategoryUtilization();
     fetchYearlyMonthlyTrend();
-  }, []);
+  }, [selectedYear, selectedMonth]);
 
   return (
     <div className="dashboard-container">
@@ -156,20 +213,84 @@ function Dashboard() {
         <div>Loading...</div>
       ) : (
         <>
-          <div className="dashboard-row">
-            <div className="dashboard-box">
-              <PieChart chartData={pieCharData} />
+          <div className="dashboard-row filter-section">
+            <div className="dashboard-input-box">
+              <label htmlFor="year" className="form-label">
+                Choose Year:{" "}
+              </label>
+              <select
+                id="year"
+                className="form-input form-select"
+                value={selectedYear}
+                onChange={handleYearChange}
+              >
+                {[...Array(5)].map((_, i) => (
+                  <option key={i} value={new Date().getFullYear() - i}>
+                    {new Date().getFullYear() - i}
+                  </option>
+                ))}
+              </select>
             </div>
-            <div className="dashboard-box">
-              <div className="box-chart">
-                <BarChart chartData={barCharData} />
-              </div>
+            <div className="dashboard-input-box">
+              <label htmlFor="month" className="form-label">
+                Choose Month:{" "}
+              </label>
+              <select
+                id="month"
+                className="form-input form-select"
+                value={selectedMonth}
+                onChange={handleMonthChange}
+              >
+                {[
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                  "July",
+                  "August",
+                  "September",
+                  "October",
+                  "November",
+                  "December",
+                ].map((month, index) => (
+                  <option key={month} value={index + 1}>
+                    {month}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
+          {isEmpty ? (
+            <div className="dashboard-row">
+              <div className="dashboard-box dashboard-message">
+                <div>
+                  No data available for{" "}
+                  <strong>
+                    {selectedMonth}/{selectedYear}
+                  </strong>
+                  .<br />
+                  Please select a different month or year.
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="dashboard-row">
+              <div className="dashboard-box">
+                <PieChart chartData={pieCharData} />
+              </div>
+              <div className="dashboard-box">
+                <div className="box-chart">
+                  <BarChart chartData={barCharData} />
+                </div>
+              </div>
+            </div>
+          )}
           <div className="dashboard-row">
             <div className="dashboard-box">
               <div className="box-chart">
-                <LineChart chartData={lineChartData}/>
+                <LineChart chartData={lineChartData} />
               </div>
             </div>
           </div>

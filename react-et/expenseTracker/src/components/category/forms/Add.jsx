@@ -43,6 +43,7 @@ function AddCategory() {
           Emoji
         </label>
         <input
+          id="emoji"
           {...register("emoji", {
             required: true,
           })}
@@ -56,6 +57,7 @@ function AddCategory() {
           Name
         </label>
         <input
+          id="name"
           {...register("name", {
             required: true,
             minLength: 3,
@@ -77,6 +79,7 @@ function AddCategory() {
           Budget
         </label>
         <input
+          id="budget"
           {...register("budget", {
             required: true,
             pattern: /^\d+$/,

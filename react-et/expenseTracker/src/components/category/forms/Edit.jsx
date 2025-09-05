@@ -67,6 +67,7 @@ function Edit() {
 
             <label htmlFor="emoji" className="form-label">Emoji</label>
             <input
+                id="emoji"
                 {...register("emoji", {
                     required: true
                 })}
@@ -79,6 +80,7 @@ function Edit() {
 
             <label htmlFor="name" className="form-label">Name</label>
             <input
+                id="name"
                 {...register("name", {
                     required: true,
                     minLength: 3,
@@ -99,6 +101,7 @@ function Edit() {
 
             <label htmlFor="budget" className="form-label">Budget</label>
             <input
+                id="budget"
                 {...register("budget", {
                     required: true,
                     pattern: /^\d+$/

@@ -69,6 +69,7 @@ const Add = () => {
             Title
           </label>
           <input
+            id="title"
             {...register("title", {
               required: true,
               minLength: 4,
@@ -94,6 +95,7 @@ const Add = () => {
             Amount
           </label>
           <input
+            id="amount"
             {...register("amount", {
               required: true,
               min: 1,
@@ -111,6 +113,7 @@ const Add = () => {
             Date
           </label>
           <input
+            id="date"
             type="date"
             {...register("date", { valueAsDate: true, required: true })}
             className="form-input"
@@ -123,6 +126,7 @@ const Add = () => {
             Category
           </label>
           <select
+            id="category"
             {...register("category.id", { required: true })}
             className="form-input"
           >
