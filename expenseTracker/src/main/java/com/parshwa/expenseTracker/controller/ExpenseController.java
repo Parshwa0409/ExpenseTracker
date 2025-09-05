@@ -49,12 +49,17 @@ public class ExpenseController {
         expenseService.deleteExpense(id);
     }
 
-     @GetMapping("api/expenses/search")
+    @GetMapping("api/expenses/search")
     public List<ExpenseWithCategoryDto> searchExpenses(@RequestParam String keyword, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "7") int size){
          if (keyword == null || keyword.trim().isEmpty()) {
              throw new IllegalArgumentException("Search Keyword must not be null or empty");
          }
 
         return expenseService.searchExpenses(keyword, page, size);
+    }
+
+    @GetMapping("api/expenses/count")
+    public long getRecordsCount(){
+        return expenseService.getCount();
     }
 }

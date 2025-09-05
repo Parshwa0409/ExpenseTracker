@@ -3,6 +3,7 @@ package com.parshwa.expenseTracker.controller;
 import com.parshwa.expenseTracker.dto.CategoryWithBudgetDto;
 import com.parshwa.expenseTracker.service.CategoryService;
 import jakarta.validation.Valid;
+import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,7 +43,7 @@ public class CategoryController {
     }
 
     @DeleteMapping("api/categories/{id}")
-    public void deleteCategory(@PathVariable int id){
+    public void deleteCategory(@PathVariable int id) throws BadRequestException {
         isValidPathVariable(id);
         categoryService.deleteCategory(id);
     }
