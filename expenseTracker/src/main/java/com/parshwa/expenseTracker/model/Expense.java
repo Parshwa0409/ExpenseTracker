@@ -25,6 +25,8 @@ public class Expense {
 
     @NotNull(message = "Date of Expense cannot be null")
     private LocalDate date;
-    @ManyToOne(fetch = FetchType.EAGER)
+
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 }

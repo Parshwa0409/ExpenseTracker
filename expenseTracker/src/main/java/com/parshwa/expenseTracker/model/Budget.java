@@ -24,8 +24,7 @@ public class Budget {
     @Column(name = "date_of_updation")
     private LocalDate dateOfUpdation;
 
-    @NotNull(message = "Category cannot be null")
-    @ManyToOne @JoinColumn(name = "category_id")
-    @JsonIgnoreProperties("budgets")
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 }
