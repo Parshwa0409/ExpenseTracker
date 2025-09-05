@@ -1,0 +1,22 @@
+ CREATE TABLE category(
+ 	id INT AUTO_INCREMENT PRIMARY KEY,
+     emoji VARCHAR(52),
+     name VARCHAR(52)
+ );
+
+ CREATE TABLE budget(
+ 	id INT AUTO_INCREMENT PRIMARY KEY,
+     budget INT,
+     date_of_updation DATE,
+     category_id INT,
+     FOREIGN KEY (category_id) REFERENCES category(id)
+ );
+
+ CREATE TABLE expense(
+ 	id INT AUTO_INCREMENT PRIMARY KEY,
+     title VARCHAR(52),
+     amount INT,
+     date DATE,
+     category_id INT,
+     FOREIGN KEY (category_id) REFERENCES category(id)
+ );
