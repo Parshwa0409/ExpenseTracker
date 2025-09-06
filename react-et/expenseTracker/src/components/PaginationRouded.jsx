@@ -9,6 +9,7 @@ function PaginationRounded(props) {
         onChange={(_, currentPage) => {
           props.pageChangeStateSetter(currentPage);
         }}
+        page={props.activePage}
         variant="outlined"
         shape="rounded"
         size="large"

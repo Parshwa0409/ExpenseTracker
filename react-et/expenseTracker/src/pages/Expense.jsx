@@ -112,6 +112,7 @@ function Expense() {
             <PaginationRounded
               pageChangeStateSetter={setCurrentPage}
               count={pageCount}
+              activePage={currentPage}
             />
           </div>
         </>
