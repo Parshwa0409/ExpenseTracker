@@ -1,12 +1,6 @@
 # Expense Tracker App: Essential & Advanced Improvements
 
 ## Next Steps & Advanced Improvements
-
-- **Dockerized Database:**
-  - Use Docker and PostgreSQL for a portable, production-like environment.
-  - Provide a `docker-compose.yml` for easy setup.
-  - Configure Spring Boot to connect to the Dockerized database.
-
 - **Download Feature**
   - Add export functionality for reports
 
@@ -26,10 +20,8 @@
 - **Global Error Handling**
 - **Context Provider**
 - **Toastify Notifications**
-- **Optimistic UI**
 - **Redis Caching**
-- **Docker & PostgreSQL**
-- **TypeScript/PropTypes**
+- **Docker & MySQL**
 - **Responsive & Accessible Design**
 - **Advanced Analytics**
 - **Budget Tracking**

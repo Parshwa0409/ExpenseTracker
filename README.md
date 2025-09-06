@@ -1,62 +1,119 @@
+
 # Expense Tracker Application
 
-A full-stack expense tracking application built with Spring Boot backend and React frontend. This application helps users track their expenses, categorize them, and visualize spending patterns through various charts and analytics.
+A full-stack expense tracking application built with Spring Boot (backend) and React (frontend). Track expenses, manage categories, and visualize spending patterns with interactive charts and analytics.
+
+## Features
+
+- Expense tracking with category assignment
+- Dashboard with Bar, Line, and Pie charts
+- Category management (add, edit, delete)
+- Pagination for expense lists
+- Form validation and toast notifications
+- Global error handling
+- Responsive Material-UI design
+- Containerized backend with MySQL using Docker
+
+## Technologies Used
+
+**Backend:**
+- Spring Boot 3.5.5
+- Spring Data JPA
+- MySQL (via Docker)
+- Java 21
+
+**Frontend:**
+- React 19
+- React Router DOM
+- Material-UI
+- Chart.js & React-Chartjs-2
+- React Hook Form
+- Axios
+- React Toastify
+- Vite
+
+**DevOps:**
+- Docker & Docker Compose
+- Maven
 
 ## Project Structure
 
 ```
 ExpenseTracker/
-├── expenseTracker/          # Spring Boot Backend
+├── expenseTracker/          # Spring Boot Backend (with Docker)
 └── react-et/expenseTracker/ # React Frontend
 ```
 
-## Features
+## Setup Instructions
 
-- Expense tracking with categories
-- Dashboard with visual analytics (Bar, Line, and Pie charts)
-- Category management
-- Pagination for expense lists
-- Form validation
-- Toast notifications for user feedback
-- Global error handling
-- Responsive design
+### 1. Clone the Repository
 
-## Prerequisites
+```bash
+git clone https://github.com/Parshwa0409/ExpenseTracker.git
+cd ExpenseTracker
+```
 
-Before you begin, ensure you have the following installed:
-- Java 21 or higher
-- Node.js (Latest LTS version)
-- npm or yarn
-- Maven
+### 2. Start MySQL Database with Docker
 
-## Backend Setup (Spring Boot)
+```bash
+cd expenseTracker
+docker compose up -d
+```
+- MySQL runs on port 3307 (host) → 3306 (container)
+- Credentials:
+   - Database: expense_tracker
+   - User: app_user / app_pass_123
+   - Root: root / root_pass_123
 
-1. Navigate to the backend directory:
-   ```bash
-   cd expenseTracker
-   ```
+### 3. Backend Setup (Spring Boot)
 
-2. Build the project:
-   ```bash
-   ./mvnw clean install
-   ```
+```bash
+cd expenseTracker
+./mvnw clean install
+./mvnw spring-boot:run
+```
+- The backend server starts at `http://localhost:8080`
+- H2 Console (for dev): `http://localhost:8080/h2-console`
+- MySQL is used for persistent storage (see `docker-compose.yml`)
 
-3. Run the application:
-   ```bash
-   ./mvnw spring-boot:run
-   ```
+### 4. Frontend Setup (React)
 
-The backend server will start on `http://localhost:8080`
+```bash
+cd ../react-et/expenseTracker
+npm install
+npm run dev
+```
+- The frontend starts at `http://localhost:5173`
 
-### Backend Configuration
-- The application uses H2 in-memory database
-- H2 Console is available at `http://localhost:8080/h2-console`
-- Default H2 credentials:
-  - JDBC URL: `jdbc:h2:mem:expenseTrackerDB`
-  - Username: `sa`
-  - Password: ` ` (empty)
+### 5. Database Initialization & Troubleshooting
 
-## Frontend Setup (React)
+If you need to reset the database:
+```bash
+docker compose down -v
+docker compose up -d
+```
+To connect to MySQL container:
+```bash
+docker exec -it expense-tracker-db mysql -uroot -proot_pass_123
+```
+
+## API Endpoints
+
+- `/api/categories` - Category CRUD
+- `/api/expenses` - Expense CRUD & pagination
+- `/api/dashboard` - Analytics data
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
 
 1. Navigate to the frontend directory:
    ```bash
