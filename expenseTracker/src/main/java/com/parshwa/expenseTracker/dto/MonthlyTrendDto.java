@@ -3,8 +3,10 @@ package com.parshwa.expenseTracker.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Getter @Setter
-public class MonthlyTrendDto {
+public class MonthlyTrendDto implements Serializable {
     // The @Id and @GeneratedValue annotations are only meaningful for JPA entities, not DTOs.
     // For DTOs, generate IDs in the constructor or service layer as needed.
     // @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

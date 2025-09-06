@@ -10,8 +10,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Getter @Setter @NoArgsConstructor
-public class CategoryWithBudgetDto {
+public class CategoryWithBudgetDto implements Serializable {
     private int id;
 
     @NotBlank(message = "Emoji cannot be blank")

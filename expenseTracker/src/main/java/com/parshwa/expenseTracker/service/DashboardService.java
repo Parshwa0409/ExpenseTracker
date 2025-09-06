@@ -6,6 +6,7 @@ import com.parshwa.expenseTracker.repository.BudgetRepository;
 import com.parshwa.expenseTracker.repository.CategoryRepository;
 import com.parshwa.expenseTracker.repository.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,7 @@ public class DashboardService {
     @Autowired ExpenseRepository expenseRepository;
     @Autowired BudgetRepository budgetRepository;
 
+    @Cacheable(value = "monthlyTrends", key = "'all'")
     public List<MonthlyTrendDto> getLastThreeYearsMonthlyTrends() {
         return expenseRepository.getMonthlyTrends();
     }

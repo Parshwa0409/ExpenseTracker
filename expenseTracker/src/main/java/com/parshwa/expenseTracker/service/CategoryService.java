@@ -7,6 +7,9 @@ import com.parshwa.expenseTracker.repository.CategoryRepository;
 import jakarta.transaction.Transactional;
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +24,7 @@ public class CategoryService {
 
     private final LocalDate currentDate = LocalDate.now();
 
+    @Cacheable(value = "categories", key = "'all'")
     public List<CategoryWithBudgetDto> getAllCategories() {
         return categoryRepository
                 .findAll()
@@ -41,6 +45,7 @@ public class CategoryService {
         return new CategoryWithBudgetDto(category, latestBudget);
     }
 
+    @CacheEvict(value = "categories", key = "'all'")
     public CategoryWithBudgetDto createCategory(CategoryWithBudgetDto dto) {
         Category category = new Category();
         category.setName(dto.getName());
@@ -56,6 +61,7 @@ public class CategoryService {
         return new CategoryWithBudgetDto(category, budget);
     }
 
+    @CacheEvict(value = "categories", key = "'all'")
     public CategoryWithBudgetDto updateCategory(int id, CategoryWithBudgetDto categoryWithBudgetDto) {
         Category c = categoryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Category not found with id: " + id));
         c.setEmoji(categoryWithBudgetDto.getEmoji());
@@ -72,7 +78,7 @@ public class CategoryService {
     }
 
     // A category cannot be deleted until all associated expenses are removed; if deletable, also delete its budgets.
-    @Transactional
+    @CacheEvict(value = "categories", key = "'all'")
     public void deleteCategory(int id) throws BadRequestException {
         if (categoryRepository.countExpensesByCategoryId(id) > 0) {
             throw new BadRequestException("Category cannot be deleted because it has expenses.");

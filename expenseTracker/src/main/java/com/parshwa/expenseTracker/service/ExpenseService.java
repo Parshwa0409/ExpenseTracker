@@ -6,6 +6,7 @@ import com.parshwa.expenseTracker.model.Expense;
 import com.parshwa.expenseTracker.repository.CategoryRepository;
 import com.parshwa.expenseTracker.repository.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -32,6 +33,7 @@ public class ExpenseService {
         return new ExpenseWithCategoryDto(e);
     }
 
+    @CacheEvict(value = "monthlyTrends", key = "'all'")
     public ExpenseWithCategoryDto createExpense(ExpenseWithCategoryDto expenseWithCategoryDto) {
         int categoryId = expenseWithCategoryDto.getCategory().getId();
         Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException("Category not found with id: " + categoryId));
@@ -47,6 +49,7 @@ public class ExpenseService {
         return new ExpenseWithCategoryDto(expense);
     }
 
+    @CacheEvict(value = "monthlyTrends", key = "'all'")
     public ExpenseWithCategoryDto updateExpense(int id, ExpenseWithCategoryDto expenseWithCategoryDto) {
         int categoryId = expenseWithCategoryDto.getCategory().getId();
         Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException("Category not found with id: " + categoryId));
@@ -61,6 +64,7 @@ public class ExpenseService {
         return new ExpenseWithCategoryDto(expense);
     }
 
+    @CacheEvict(value = "monthlyTrends", key = "'all'")
     public void deleteExpense(int id) {
         expenseRepository.deleteById(id);
     }
