@@ -74,6 +74,18 @@
             <artifactId>spring-data-rest-webmvc</artifactId>
             <version>4.4.2</version>
         </dependency>
+
+        <!-- Redis Cache -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!-- Cache API -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
 	</dependencies>
 
 	<build>
