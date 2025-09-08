@@ -1,6 +1,7 @@
 package com.parshwa.expenseTracker.controller;
 
 import com.parshwa.expenseTracker.dto.ExpenseWithCategoryDto;
+import com.parshwa.expenseTracker.dto.PagedExpensesWithCountDto;
 import com.parshwa.expenseTracker.model.Expense;
 import com.parshwa.expenseTracker.service.ExpenseService;
 import jakarta.validation.Valid;
@@ -22,7 +23,7 @@ public class ExpenseController {
     }
 
     @GetMapping("api/expenses")
-    public List<ExpenseWithCategoryDto> getExpenses(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "7") int size) {
+    public PagedExpensesWithCountDto getExpenses(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "7") int size) {
         return expenseService.getAllExpenses(page, size);
     }
 
@@ -50,7 +51,7 @@ public class ExpenseController {
     }
 
     @GetMapping("api/expenses/search")
-    public List<ExpenseWithCategoryDto> searchExpenses(@RequestParam String keyword, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "7") int size){
+    public PagedExpensesWithCountDto searchExpenses(@RequestParam String keyword, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "7") int size){
          if (keyword == null || keyword.trim().isEmpty()) {
              throw new IllegalArgumentException("Search Keyword must not be null or empty");
          }

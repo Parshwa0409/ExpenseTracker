@@ -1,12 +1,14 @@
 package com.parshwa.expenseTracker.service;
 
 import com.parshwa.expenseTracker.dto.ExpenseWithCategoryDto;
+import com.parshwa.expenseTracker.dto.PagedExpensesWithCountDto;
 import com.parshwa.expenseTracker.model.Category;
 import com.parshwa.expenseTracker.model.Expense;
 import com.parshwa.expenseTracker.repository.CategoryRepository;
 import com.parshwa.expenseTracker.repository.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -20,12 +22,12 @@ public class ExpenseService {
     @Autowired private ExpenseRepository expenseRepository;
     @Autowired private CategoryRepository categoryRepository;
 
-    public List<ExpenseWithCategoryDto> getAllExpenses(int page, int size) {
+    public PagedExpensesWithCountDto getAllExpenses(int page, int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by("date").descending());
+        Page<Expense> pagedExpenses = expenseRepository.findAll(pageable);
+        List<ExpenseWithCategoryDto> expenses = pagedExpenses.stream().map(ExpenseWithCategoryDto::new).toList();
 
-        return expenseRepository.findAll(pageable).stream().map(
-                ExpenseWithCategoryDto::new
-        ).toList();
+        return new PagedExpensesWithCountDto(expenses, pagedExpenses.getTotalElements(), pagedExpenses.getTotalPages());
     }
 
     public ExpenseWithCategoryDto getExpense(int id) {
@@ -69,11 +71,12 @@ public class ExpenseService {
         expenseRepository.deleteById(id);
     }
 
-    public List<ExpenseWithCategoryDto> searchExpenses(String keyword, int page, int size) {
+    public PagedExpensesWithCountDto searchExpenses(String keyword, int page, int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by("date").descending());
-        return expenseRepository.findByTitleContaining(keyword, pageable).stream().map(
-                ExpenseWithCategoryDto::new
-        ).toList();
+        Page<Expense> pagedExpenses = expenseRepository.findByTitleContaining(keyword, pageable);
+        List<ExpenseWithCategoryDto> expenses = pagedExpenses.stream().map(ExpenseWithCategoryDto::new).toList();
+
+        return new PagedExpensesWithCountDto(expenses, pagedExpenses.getTotalElements(), pagedExpenses.getTotalPages());
     }
 
     public long getCount() {
