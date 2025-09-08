@@ -58,7 +58,7 @@ function Category() {
             </div>
             <hr className="styled-hr"/>
             {isLoading ? (
-                <div>Loading...</div>
+                <div className="loading-message">Loading 🚀</div>
             ) : (
                 <div className="category-content">
                     {

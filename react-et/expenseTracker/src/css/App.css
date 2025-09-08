@@ -1,3 +1,12 @@
+/* Centered loading message style for all pages */
+.loading-message {
+	text-align: center;
+	margin: 48px auto 32px auto;
+	font-size: 1.5rem;
+	font-weight: 500;
+	letter-spacing: 0.5px;
+	color: #6366f1;
+}
 /* Global Styles */
 body {
 	font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;

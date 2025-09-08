@@ -206,6 +206,7 @@ function Dashboard() {
   };
 
   useEffect(() => {
+    debugger
     fetchCategoryUtilization();
     fetchYearlyMonthlyTrend();
   }, [selectedYear, selectedMonth]);
@@ -213,7 +214,7 @@ function Dashboard() {
   return (
     <div className="dashboard-container">
       {isLoading ? (
-        <div>Loading...</div>
+        <div className="loading-message">Loading 🚀</div>
       ) : (
         <>
           <div className="dashboard-row filter-section">

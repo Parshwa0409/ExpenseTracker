@@ -57,7 +57,7 @@ const Add = () => {
   return (
     <div>
       {isLoading ? (
-        <div>Loading...</div>
+        <div className="loading-message">Loading 🚀</div>
       ) : (
         <form
           onSubmit={handleSubmit(onSubmit)}
